@@ -1,0 +1,2330 @@
+definitions:
+  controllers.Avgspeeds:
+    properties:
+      speed:
+        type: string
+      time:
+        type: string
+    type: object
+  controllers.Bandwidth:
+    properties:
+      speed:
+        type: number
+      time:
+        type: string
+      unit:
+        type: string
+    type: object
+  controllers.Ccu:
+    properties:
+      ccu:
+        type: string
+      http_host:
+        type: string
+      time:
+        type: string
+    type: object
+  controllers.City:
+    properties:
+      city:
+        type: string
+      count:
+        type: string
+      http_host:
+        type: string
+      time:
+        type: string
+    type: object
+  controllers.CountryISO:
+    properties:
+      count:
+        type: string
+      country:
+        type: string
+      http_host:
+        type: string
+      time:
+        type: string
+    type: object
+  controllers.Detail:
+    properties:
+      android:
+        type: integer
+      byte:
+        type: integer
+      byteVN:
+        type: integer
+      cache_hit:
+        type: integer
+      cache_miss:
+        type: integer
+      http_host:
+        type: string
+      ios:
+        type: integer
+      macintosh:
+        type: integer
+      other:
+        type: integer
+      requestVN:
+        type: integer
+      requests:
+        type: integer
+      smartv:
+        type: integer
+      status_2x:
+        type: integer
+      status_3x:
+        type: integer
+      status_4x:
+        type: integer
+      status_5x:
+        type: integer
+      time:
+        type: string
+      windows:
+        type: integer
+    type: object
+  controllers.DomainHost:
+    properties:
+      http_host:
+        type: string
+      user:
+        type: string
+    type: object
+  controllers.HOST:
+    properties:
+      http_host:
+        items:
+          type: string
+        type: array
+    type: object
+  controllers.ISPs:
+    properties:
+      count:
+        type: string
+      http_host:
+        type: string
+      isp:
+        type: string
+      time:
+        type: string
+    type: object
+  controllers.Referer:
+    properties:
+      count:
+        type: string
+      http_host:
+        type: string
+      referer:
+        type: string
+      time:
+        type: string
+    type: object
+  controllers.TimeResponse:
+    properties:
+      http_host:
+        type: string
+      over4s:
+        type: string
+      over6s:
+        type: string
+      time:
+        type: string
+      under4s:
+        type: string
+    type: object
+  controllers.TopHttpCodeError:
+    properties:
+      count:
+        type: string
+      http_code_error:
+        type: string
+      http_host:
+        type: string
+      time:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /log//user/country/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count country isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.CountryISO'
+            type: array
+      summary: country isp
+      tags:
+      - User Node
+  /log/avgspeed/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do Avgspeed
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Avgspeeds'
+            type: array
+      summary: Avgspeed data
+      tags:
+      - domain
+  /log/bandwidth/{domain}/{unit}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary bandwidth of domain
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: Kb,Mb,Gb,Tb
+        in: path
+        name: unit
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Bandwidth'
+            type: array
+      summary: sumary bandwidth of domain
+      tags:
+      - domain
+  /log/bandwidthAll/{domain}/{unit}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary bandwidth of domain all
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: Kb,Mb,Gb,Tb
+        in: path
+        name: unit
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Bandwidth'
+            type: array
+      summary: sumary bandwidth of domain all
+      tags:
+      - domain
+  /log/bytefmt/{byte}:
+    get:
+      consumes:
+      - application/json
+      description: byte to KB,MB,GB,TB
+      parameters:
+      - description: "1024"
+        in: path
+        name: byte
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: byte to KB,MB,GB,TB
+      tags:
+      - domain
+  /log/ccu/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count ccu domain
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Ccu'
+            type: array
+      summary: ccu domain
+      tags:
+      - domain
+  /log/city/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count city domain
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.City'
+            type: array
+      summary: city domain
+      tags:
+      - domain
+  /log/codeerr/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do top http code error
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TopHttpCodeError'
+            type: array
+      summary: top http code error data
+      tags:
+      - domain
+  /log/contry/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count country
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.CountryISO'
+            type: array
+      summary: country
+      tags:
+      - domain
+  /log/daily/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do daily
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: daily
+      tags:
+      - domain
+  /log/domain/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do domain
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: domain
+      tags:
+      - domain
+  /log/domains:
+    get:
+      consumes:
+      - application/json
+      description: get all domain
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.HOST'
+            type: array
+      summary: all domain
+      tags:
+      - domain
+  /log/isp/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count ISP
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.ISPs'
+            type: array
+      summary: ISP
+      tags:
+      - domain
+  /log/monthly/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do monthly
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: monthly
+      tags:
+      - domain
+  /log/referer/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count referer
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.ISPs'
+            type: array
+      summary: referer
+      tags:
+      - domain
+  /log/responseTime/{domain}/{name}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count time Respone
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: under4sec,under6sec,over6sec
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TimeResponse'
+            type: array
+      summary: time Respone
+      tags:
+      - domain
+  /log/responseTimeDaily/{domain}/{name}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count time Respone
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      - description: under4sec,under6sec,over6sec
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TimeResponse'
+            type: array
+      summary: time Respone
+      tags:
+      - domain
+  /log/sumarydata/{domain}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: sumary data
+      tags:
+      - domain
+  /log/thismonth/{domain}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: sumary this month
+      tags:
+      - domain
+  /log/today/{domain}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary
+      parameters:
+      - description: vovlive.1cdn.vn
+        in: path
+        name: domain
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: sumary today
+      tags:
+      - domain
+  /log/total/avgspeed/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total Avgspeed isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Avgspeeds'
+            type: array
+      tags:
+      - Total Node
+  /log/total/bandwidth//{unit}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary bandwidth Total
+      parameters:
+      - description: Kb,Mb,Gb,Tb
+        in: path
+        name: unit
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Bandwidth'
+            type: array
+      summary: sumary bandwidth Total
+      tags:
+      - Total
+  /log/total/bandwidth/{node}/{unit}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary bandwidth Total isp
+      parameters:
+      - description: Kb,Mb,Gb,Tb
+        in: path
+        name: unit
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Bandwidth'
+            type: array
+      summary: sumary bandwidth Total isp
+      tags:
+      - Total Node
+  /log/total/ccu/isp/{node}/{total}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total ccu
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Ccu'
+            type: array
+      summary: total ccu
+      tags:
+      - Total Node
+  /log/total/city/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count City
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.City'
+            type: array
+      summary: City
+      tags:
+      - Total
+  /log/total/city/isp/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count City isp
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.City'
+            type: array
+      summary: City isp
+      tags:
+      - Total Node
+  /log/total/codeerr/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total TopHttpCodeError isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TopHttpCodeError'
+            type: array
+      summary: total TopHttpCodeError isp
+      tags:
+      - Total Node
+  /log/total/country/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count country
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.CountryISO'
+            type: array
+      summary: country
+      tags:
+      - Total
+  /log/total/country/isp/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count country isp
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.CountryISO'
+            type: array
+      summary: country isp
+      tags:
+      - Total Node
+  /log/total/daily/{total}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total daily
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total daily
+      tags:
+      - Total
+  /log/total/daily/isp/{node}/{total}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total daily isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total daily
+      tags:
+      - Total Node
+  /log/total/isp/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count ISP
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.ISPs'
+            type: array
+      summary: ISP
+      tags:
+      - Total
+  /log/total/isp/node/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count ISP isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.ISPs'
+            type: array
+      summary: ISP isp
+      tags:
+      - Total Node
+  /log/total/min/{node}/{total}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total min node
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total minn ode
+      tags:
+      - Total Node
+  /log/total/min/{total}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total min
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total min
+      tags:
+      - Total
+  /log/total/monly/{total}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total monly
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total monly
+      tags:
+      - Total
+  /log/total/monly/isp/{node}/{total}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total monly isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total monly isp
+      tags:
+      - Total Node
+  /log/total/referer/isp/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count Referer isp
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Referer'
+            type: array
+      summary: Referer isp
+      tags:
+      - Total Node
+  /log/total/responseTime/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count time Respone
+      parameters:
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TimeResponse'
+            type: array
+      summary: time Respone
+      tags:
+      - Total
+  /log/total/responseTime/isp/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count time Respone isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TimeResponse'
+            type: array
+      summary: time Respone isp
+      tags:
+      - Total Node
+  /log/total/sumary/{node}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do total summary isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total summary isp
+      tags:
+      - Total Node
+  /log/total/thismonth/{node}:
+    get:
+      consumes:
+      - application/json
+      description: do total thismonth isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total thismonth isp
+      tags:
+      - Total Node
+  /log/total/thismonth/{total}:
+    get:
+      consumes:
+      - application/json
+      description: do total thismonth
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total thismonth
+      tags:
+      - Total
+  /log/total/today/{node}:
+    get:
+      consumes:
+      - application/json
+      description: do total today isp
+      parameters:
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total today isp
+      tags:
+      - Total Node
+  /log/total/today/{total}:
+    get:
+      consumes:
+      - application/json
+      description: do total today
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: total today
+      tags:
+      - Total
+  /log/totalbyte:
+    get:
+      consumes:
+      - application/json
+      description: do sumary total byte
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Bandwidth'
+            type: array
+      summary: sumary total byte
+      tags:
+      - log
+  /log/user/avgspeed/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: Avgspeed isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Avgspeeds'
+            type: array
+      summary: user Avgspeed isp
+      tags:
+      - User Node
+  /log/user/bandwidth/{user}/{unit}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary bandwidth of domain
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: Kb,Mb,Gb,Tb
+        in: path
+        name: unit
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Bandwidth'
+            type: array
+      summary: sumary bandwidth of domain
+      tags:
+      - User
+  /log/user/bandwidth/isp/{node}/{user}/{unit}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do sumary bandwidth of domain  isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: Kb,Mb,Gb,Tb
+        in: path
+        name: unit
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Bandwidth'
+            type: array
+      summary: sumary bandwidth of domain  isp
+      tags:
+      - User Node
+  /log/user/ccu/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user ccu
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Ccu'
+            type: array
+      summary: user ccu
+      tags:
+      - User Node
+  /log/user/city/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count City
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.City'
+            type: array
+      summary: City
+      tags:
+      - User
+  /log/user/city/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count City isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.City'
+            type: array
+      summary: City isp
+      tags:
+      - User Node
+  /log/user/codeerr/{node}/{user}/{code}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: user http error code
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: 404x
+        in: path
+        name: code
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TopHttpCodeError'
+            type: array
+      summary: user http error code isp
+      tags:
+      - User Node
+  /log/user/country/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count country
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.CountryISO'
+            type: array
+      summary: country
+      tags:
+      - User
+  /log/user/daily/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user daily
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user daily
+      tags:
+      - User
+  /log/user/daily/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user daily isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user daily isp
+      tags:
+      - User Node
+  /log/user/domains/{user}:
+    get:
+      consumes:
+      - application/json
+      description: get all domain of user
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.DomainHost'
+            type: array
+      summary: all domain of user
+      tags:
+      - User
+  /log/user/isp/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count ISP
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.ISPs'
+            type: array
+      summary: ISP
+      tags:
+      - User
+  /log/user/isp/isp/node/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count ISP
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.ISPs'
+            type: array
+      summary: ISP
+      tags:
+      - User Node
+  /log/user/min/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user min
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user min
+      tags:
+      - User
+  /log/user/min/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user min isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user min isp
+      tags:
+      - User Node
+  /log/user/monly/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user monly
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user monly
+      tags:
+      - User
+  /log/user/monly/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user monly isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: vnpt
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user monly isp
+      tags:
+      - User Node
+  /log/user/referer/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count time referer isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Referer'
+            type: array
+      summary: time referer isp
+      tags:
+      - User Node
+  /log/user/responseTime/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count time Respone
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TimeResponse'
+            type: array
+      summary: time Respone
+      tags:
+      - User
+  /log/user/responseTime/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: count time Respone isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      - description: "1636633800"
+        in: path
+        name: fromtime
+        required: true
+        type: integer
+      - description: "1637810200"
+        in: path
+        name: totime
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.TimeResponse'
+            type: array
+      summary: time Respone isp
+      tags:
+      - User Node
+  /log/user/thismonth/{node}/{user}:
+    get:
+      consumes:
+      - application/json
+      description: do user thismonth isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user thismonth isp
+      tags:
+      - User Node
+  /log/user/thismonth/{user}:
+    get:
+      consumes:
+      - application/json
+      description: do user thismonth
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user thismonth
+      tags:
+      - User
+  /log/user/today/{user}:
+    get:
+      consumes:
+      - application/json
+      description: do user today
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user today
+      tags:
+      - User
+  /log/user/today/isp/{node}/{user}:
+    get:
+      consumes:
+      - application/json
+      description: do user today isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user today isp
+      tags:
+      - User Node
+  /log/user/today/isp/{node}/{user}/{fromtime}/{totime}:
+    get:
+      consumes:
+      - application/json
+      description: do user summary data isp
+      parameters:
+      - description: vtvcab
+        in: path
+        name: user
+        required: true
+        type: string
+      - description: viettel
+        in: path
+        name: node
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controllers.Detail'
+            type: array
+      summary: user summary data isp
+      tags:
+      - User Node
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"

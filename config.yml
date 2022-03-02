@@ -1,0 +1,6 @@
+mysql:
+  username: sbd_parser_user
+  pass: SBD@123!@#
+  dbname: sdb_log_db
+  host: 172.40.4.86
+  port: 3306

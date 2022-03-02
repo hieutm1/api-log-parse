@@ -1,0 +1,3483 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/log//user/country/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count country isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "country isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.CountryISO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/avgspeed/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do Avgspeed",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "Avgspeed data",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Avgspeeds"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/bandwidth/{domain}/{unit}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do sumary bandwidth of domain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "sumary bandwidth of domain",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Kb,Mb,Gb,Tb",
+                        "name": "unit",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Bandwidth"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/bandwidthAll/{domain}/{unit}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do sumary bandwidth of domain all",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "sumary bandwidth of domain all",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Kb,Mb,Gb,Tb",
+                        "name": "unit",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Bandwidth"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/bytefmt/{byte}": {
+            "get": {
+                "description": "byte to KB,MB,GB,TB",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "byte to KB,MB,GB,TB",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1024",
+                        "name": "byte",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/log/ccu/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count ccu domain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "ccu domain",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Ccu"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/city/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count city domain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "city domain",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.City"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/codeerr/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do top http code error",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "top http code error data",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TopHttpCodeError"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/contry/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count country",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "country",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.CountryISO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/daily/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do daily",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "daily",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/domain/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do domain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "domain",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/domains": {
+            "get": {
+                "description": "get all domain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "all domain",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.HOST"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/isp/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count ISP",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "ISP",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.ISPs"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/monthly/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do monthly",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "monthly",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/referer/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count referer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "referer",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.ISPs"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/responseTime/{domain}/{name}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count time Respone",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "time Respone",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "under4sec,under6sec,over6sec",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TimeResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/responseTimeDaily/{domain}/{name}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count time Respone",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "time Respone",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "under4sec,under6sec,over6sec",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TimeResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/sumarydata/{domain}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do sumary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "sumary data",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/thismonth/{domain}": {
+            "get": {
+                "description": "do sumary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "sumary this month",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/today/{domain}": {
+            "get": {
+                "description": "do sumary",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "domain"
+                ],
+                "summary": "sumary today",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vovlive.1cdn.vn",
+                        "name": "domain",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/avgspeed/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total Avgspeed isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Avgspeeds"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/bandwidth//{unit}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do sumary bandwidth Total",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "sumary bandwidth Total",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Kb,Mb,Gb,Tb",
+                        "name": "unit",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Bandwidth"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/bandwidth/{node}/{unit}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do sumary bandwidth Total isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "sumary bandwidth Total isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Kb,Mb,Gb,Tb",
+                        "name": "unit",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Bandwidth"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/ccu/isp/{node}/{total}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total ccu",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total ccu",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Ccu"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/city/isp/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count City isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "City isp",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.City"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/city/{fromtime}/{totime}": {
+            "get": {
+                "description": "count City",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "City",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.City"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/codeerr/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total TopHttpCodeError isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total TopHttpCodeError isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TopHttpCodeError"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/country/isp/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count country isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "country isp",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.CountryISO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/country/{fromtime}/{totime}": {
+            "get": {
+                "description": "count country",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "country",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.CountryISO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/daily/isp/{node}/{total}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total daily isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total daily",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/daily/{total}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total daily",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "total daily",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/isp/node/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count ISP isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "ISP isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.ISPs"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/isp/{fromtime}/{totime}": {
+            "get": {
+                "description": "count ISP",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "ISP",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.ISPs"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/min/{node}/{total}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total min node",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total minn ode",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/min/{total}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total min",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "total min",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/monly/isp/{node}/{total}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total monly isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total monly isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/monly/{total}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total monly",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "total monly",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/referer/isp/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count Referer isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "Referer isp",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Referer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/responseTime/isp/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count time Respone isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "time Respone isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TimeResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/responseTime/{fromtime}/{totime}": {
+            "get": {
+                "description": "count time Respone",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "time Respone",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TimeResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/sumary/{node}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do total summary isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total summary isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/thismonth/{node}": {
+            "get": {
+                "description": "do total thismonth isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total thismonth isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/thismonth/{total}": {
+            "get": {
+                "description": "do total thismonth",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "total thismonth",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/today/{node}": {
+            "get": {
+                "description": "do total today isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total Node"
+                ],
+                "summary": "total today isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/total/today/{total}": {
+            "get": {
+                "description": "do total today",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Total"
+                ],
+                "summary": "total today",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/totalbyte": {
+            "get": {
+                "description": "do sumary total byte",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "log"
+                ],
+                "summary": "sumary total byte",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Bandwidth"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/avgspeed/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "Avgspeed isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user Avgspeed isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Avgspeeds"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/bandwidth/isp/{node}/{user}/{unit}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do sumary bandwidth of domain  isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "sumary bandwidth of domain  isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Kb,Mb,Gb,Tb",
+                        "name": "unit",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Bandwidth"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/bandwidth/{user}/{unit}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do sumary bandwidth of domain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "sumary bandwidth of domain",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Kb,Mb,Gb,Tb",
+                        "name": "unit",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Bandwidth"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/ccu/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user ccu",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user ccu",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Ccu"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/city/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count City isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "City isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.City"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/city/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count City",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "City",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.City"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/codeerr/{node}/{user}/{code}/{fromtime}/{totime}": {
+            "get": {
+                "description": "user http error code",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user http error code isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "404x",
+                        "name": "code",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TopHttpCodeError"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/country/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count country",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "country",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.CountryISO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/daily/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user daily isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user daily isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/daily/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user daily",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "user daily",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/domains/{user}": {
+            "get": {
+                "description": "get all domain of user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "all domain of user",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.DomainHost"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/isp/isp/node/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count ISP",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "ISP",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.ISPs"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/isp/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count ISP",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "ISP",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.ISPs"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/min/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user min isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user min isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/min/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user min",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "user min",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/monly/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user monly isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user monly isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "vnpt",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/monly/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user monly",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "user monly",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/referer/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count time referer isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "time referer isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Referer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/responseTime/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count time Respone isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "time Respone isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TimeResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/responseTime/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "count time Respone",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "time Respone",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1636633800",
+                        "name": "fromtime",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1637810200",
+                        "name": "totime",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.TimeResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/thismonth/{node}/{user}": {
+            "get": {
+                "description": "do user thismonth isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user thismonth isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/thismonth/{user}": {
+            "get": {
+                "description": "do user thismonth",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "user thismonth",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/today/isp/{node}/{user}": {
+            "get": {
+                "description": "do user today isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user today isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/today/isp/{node}/{user}/{fromtime}/{totime}": {
+            "get": {
+                "description": "do user summary data isp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Node"
+                ],
+                "summary": "user summary data isp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "viettel",
+                        "name": "node",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/log/user/today/{user}": {
+            "get": {
+                "description": "do user today",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "user today",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "vtvcab",
+                        "name": "user",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/controllers.Detail"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controllers.Avgspeeds": {
+            "type": "object",
+            "properties": {
+                "speed": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.Bandwidth": {
+            "type": "object",
+            "properties": {
+                "speed": {
+                    "type": "number"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.Ccu": {
+            "type": "object",
+            "properties": {
+                "ccu": {
+                    "type": "string"
+                },
+                "http_host": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.City": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "string"
+                },
+                "http_host": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.CountryISO": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "http_host": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.Detail": {
+            "type": "object",
+            "properties": {
+                "android": {
+                    "type": "integer"
+                },
+                "byte": {
+                    "type": "integer"
+                },
+                "byteVN": {
+                    "type": "integer"
+                },
+                "cache_hit": {
+                    "type": "integer"
+                },
+                "cache_miss": {
+                    "type": "integer"
+                },
+                "http_host": {
+                    "type": "string"
+                },
+                "ios": {
+                    "type": "integer"
+                },
+                "macintosh": {
+                    "type": "integer"
+                },
+                "other": {
+                    "type": "integer"
+                },
+                "requestVN": {
+                    "type": "integer"
+                },
+                "requests": {
+                    "type": "integer"
+                },
+                "smartv": {
+                    "type": "integer"
+                },
+                "status_2x": {
+                    "type": "integer"
+                },
+                "status_3x": {
+                    "type": "integer"
+                },
+                "status_4x": {
+                    "type": "integer"
+                },
+                "status_5x": {
+                    "type": "integer"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "windows": {
+                    "type": "integer"
+                }
+            }
+        },
+        "controllers.DomainHost": {
+            "type": "object",
+            "properties": {
+                "http_host": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.HOST": {
+            "type": "object",
+            "properties": {
+                "http_host": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "controllers.ISPs": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "string"
+                },
+                "http_host": {
+                    "type": "string"
+                },
+                "isp": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.Referer": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "string"
+                },
+                "http_host": {
+                    "type": "string"
+                },
+                "referer": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.TimeResponse": {
+            "type": "object",
+            "properties": {
+                "http_host": {
+                    "type": "string"
+                },
+                "over4s": {
+                    "type": "string"
+                },
+                "over6s": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "under4s": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.TopHttpCodeError": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "string"
+                },
+                "http_code_error": {
+                    "type": "string"
+                },
+                "http_host": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BasicAuth": {
+            "type": "basic"
+        }
+    }
+}
